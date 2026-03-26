@@ -1,0 +1,11 @@
+version: '3'
+services:
+  plate:
+    image: plate-detection
+    container_name: plate_container
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./outputs:/app/outputs
+      - .:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
